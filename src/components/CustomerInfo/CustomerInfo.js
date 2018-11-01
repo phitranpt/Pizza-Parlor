@@ -44,8 +44,8 @@ class CustomerInfo extends Component {
                     <input onChange={this.handleChange} placeholder="Street Address" value={this.state.street_address} name="street_address" />
                     <input onChange={this.handleChange} placeholder="City" value={this.state.city} name="city" />
                     <input onChange={this.handleChange} placeholder="Zip" value={this.state.zip} name="zip" /><br></br>
-                    <input onChange={this.handleChange} type="radio" value="pickup" name="selector" />Pickup<br></br>
-                    <input onChange={this.handleChange} type="radio" value="delivery" name="selector" />Delivery<br></br>
+                    <input onChange={this.handleChange} type="radio" value="pickup" name="type" />Pickup<br></br>
+                    <input onChange={this.handleChange} type="radio" value="delivery" name="type" />Delivery<br></br>
                     <input type="submit" value="Next" />
                 </form>
 
