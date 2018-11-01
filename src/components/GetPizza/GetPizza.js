@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import './GetPizza.css';
 
-const orderPrice = (pizza) => + Number(pizza.price);
-
 class GetPizza extends Component {
     state = {
-        selectPizza: '',
+        pizzas: [{
+            id: '',
+            quantity: ''
+        }],
     }
+
 
     componentDidMount() {
         this.getAllPizza();
@@ -27,26 +29,37 @@ class GetPizza extends Component {
           })  
         }
 
-        displayOrderTotal = () => {
-            return this.state.selectPizza;
+        displayOrderTotal = (price) => {
+            console.log('Order Total:', price);
+            return price;
         }
 
-        handleChange = (price) => {
+
+
+        handleChange = (id, price) => {
             console.log('running Handle Change');
             this.setState({
-              selectPizza: price,
+              pizzas: [{
+                  id: id,
+                  quantity: 1
+              }],
+              total: price
             });
-            console.log(price);
+            console.log(this.state);
+            this.displayOrderTotal(price);
           }
 
         handleNextClick = () => {
-            this.props.history.push('/customer-info')
+            console.log(this.state.pizzas);
+            
+            this.props.dispatch( {type: 'ADD_PIZZA', payload: this.state} );
+            this.props.history.push('/CustomerInfo')
           }  
 
   render() {
     return (
         <div>
-            <p>Order Total: {this.displayOrderTotal}</p>
+            <p>Order Total: {this.state.total}</p>
             {this.props.reduxState.getPizzaReducer.map(pizza => (
                 <div key={pizza.id} className="card">
                     <img alt="" src={pizza.image_path} />
@@ -58,11 +71,11 @@ class GetPizza extends Component {
                             ${pizza.price}
                             `}
                         </p>
-                        <button onClick={() => this.handleChange(pizza.price)}>Add</button>
+                        <button onClick={() => this.handleChange(pizza.id, pizza.price)}>Add</button>
                     </div>
                 </div>
             ))}
-            <button onChange={this.handleNextClick}>Next</button>
+            <button onClick={this.handleNextClick}>Next</button>
         </div>
     );
   }
