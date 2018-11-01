@@ -14,7 +14,9 @@ class Checkout extends Component {
 
     render() {
         const order = this.props.reduxState.orderReducer;
-        const id = this.props.reduxState.orderReducer.pizza.id;
+        const id = this.props.reduxState.orderReducer.pizzas[0].id;
+        console.log(id);
+        
         const pizza = this.props.reduxState.getPizzaReducer[(id-1)];
         console.log(pizza);
         
