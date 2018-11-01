@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './AdminView.css';
 
 class AdminView extends Component {
 state= {
