@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import './GetPizza.css';
 
+const orderPrice = (pizza) => + Number(pizza.price);
 
 class GetPizza extends Component {
+    state = {
+        selectPizza: '',
+    }
 
     componentDidMount() {
         this.getAllPizza();
@@ -23,19 +27,43 @@ class GetPizza extends Component {
           })  
         }
 
+        displayOrderTotal = () => {
+            return this.state.selectPizza;
+        }
+
+        handleChange = (price) => {
+            console.log('running Handle Change');
+            this.setState({
+              selectPizza: price,
+            });
+            console.log(price);
+          }
+
+        handleNextClick = () => {
+            this.props.history.push('/customer-info')
+          }  
+
   render() {
     return (
-       <ul>
-        {this.props.reduxState.getPizzaReducer.map(pizza => (
-          <li key={pizza.id}>
-            {`${pizza.name}
-            ${pizza.description}
-            ${pizza.price}
-            `}
-            <img alt="no image found" src={pizza.image_path} />
-          </li>
-        ))}
-      </ul>
+        <div>
+            <p>Order Total: {this.displayOrderTotal}</p>
+            {this.props.reduxState.getPizzaReducer.map(pizza => (
+                <div key={pizza.id} className="card">
+                    <img alt="" src={pizza.image_path} />
+                    <div className="container">
+                        <h3>{pizza.name}</h3>
+                        <p>
+                            {`
+                            ${pizza.description}
+                            ${pizza.price}
+                            `}
+                        </p>
+                        <button onClick={() => this.handleChange(pizza.price)}>Add</button>
+                    </div>
+                </div>
+            ))}
+            <button onChange={this.handleNextClick}>Next</button>
+        </div>
     );
   }
 }
