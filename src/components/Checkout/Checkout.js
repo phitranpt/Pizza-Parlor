@@ -21,7 +21,12 @@ class Checkout extends Component {
             <p>{order.street_address}</p>
             <p>{order.zip}</p>
             <p>For {order.type}</p>
-            
+            <table>
+                <thead><tr><th>Name</th><th>Cost</th></tr></thead>
+                <tr></tr>
+                <caption align="bottom">Total:{order.total}</caption>
+            </table>
+
           <button onClick={this.checkout}>Submit Order</button>
         </div>
       );
