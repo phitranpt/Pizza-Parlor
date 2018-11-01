@@ -6,15 +6,14 @@ import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import GetPizza from '../GetPizza/GetPizza';
 import AdminView from '../AdminView/AdminView';
 import Checkout from '../Checkout/Checkout';
+import Header from '../Header/Header'
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Prime Pizza</h1>
-          </header>
+        <Header />
           <nav>
             <ul>
               <li><Link to="/">Order Pizza</Link></li>
