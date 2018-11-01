@@ -6,7 +6,8 @@ const emptyCustomerObject = {
     street_address: '',
     city: '',
     zip: '',
-    total: ''
+    total: '',
+    type: ''
 }
 
 class CustomerInfo extends Component {
@@ -24,23 +25,34 @@ class CustomerInfo extends Component {
     handleSubmit = ( event ) => {
         event.preventDefault();
         console.log('adding customer information');
-        this.props.dispatch({ type: 'GET_PIZZA', payload: this.state})
+        this.props.dispatch({ type: 'ADD_CUSTOMER', payload: this.state})
+        this.clearCustomerFields();
     }
 
-    clearCustomerFields
+    //clear input fields
+    clearCustomerFields = () => {
+        this.setState( emptyCustomerObject );
+    }
 
     render () {
         return (
-            <form>
-                <input onChange={this.handleChange} placeholder="Name" value={this.state.customer_Name} name="customer_Name" />
-                <input onChange={this.handleChange} placeholder="Street Address" value={this.state.street_address} name="street_address" />
-                <input onChange={this.handleChange} placeholder="City" value={this.state.city} name="city" />
-                <input onChange={this.handleChange} placeholder="Zip" value={this.state.zip} name="zip" />
-                <input type="submit" value="Next" />
-            </form>
+            <section>
+                <h1>Step 2: Customer Information</h1>
+                
+                <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.handleChange} placeholder="Name" value={this.state.customer_Name} name="customer_Name" />
+                    <input onChange={this.handleChange} placeholder="Street Address" value={this.state.street_address} name="street_address" />
+                    <input onChange={this.handleChange} placeholder="City" value={this.state.city} name="city" />
+                    <input onChange={this.handleChange} placeholder="Zip" value={this.state.zip} name="zip" /><br></br>
+                    <input onChange={this.handleChange} type="radio" value="pickup" name="selector" />Pickup<br></br>
+                    <input onChange={this.handleChange} type="radio" value="delivery" name="selector" />Delivery<br></br>
+                    <input type="submit" value="Next" />
+                </form>
+
+                <h2>Total:</h2>
+            </section>
         )
     }
 }
-
 
 export default connect()( CustomerInfo );
