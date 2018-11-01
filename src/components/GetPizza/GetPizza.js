@@ -6,7 +6,10 @@ import './GetPizza.css';
 
 class GetPizza extends Component {
     state = {
-        selectPizza: '',
+        pizzas: [{
+            id: '',
+            quantity: ''
+        }],
     }
 
     // orderPrice = (pizza) => + Number(this.state.selectPizza);
@@ -33,16 +36,23 @@ class GetPizza extends Component {
             return price;
         }
 
-        handleChange = (price) => {
+        handleChange = (id, price) => {
             console.log('running Handle Change');
             this.setState({
-              selectPizza: price,
+              pizzas: [{
+                  id: id,
+                  quantity: 1
+              }]
             });
+            console.log(this.state);
+            
             this.displayOrderTotal(price);
           }
 
         handleNextClick = () => {
-            this.props.dispatch( {type: 'ADD_PIZZA', payload: this.state.selectPizza} );
+            console.log(this.state.pizzas);
+            
+            this.props.dispatch( {type: 'ADD_PIZZA', payload: this.state.pizzas} );
             this.props.history.push('/customer-info')
           }  
 
@@ -61,11 +71,11 @@ class GetPizza extends Component {
                             ${pizza.price}
                             `}
                         </p>
-                        <button onClick={() => this.handleChange(pizza.price)}>Add</button>
+                        <button onClick={() => this.handleChange(pizza.id, pizza.price)}>Add</button>
                     </div>
                 </div>
             ))}
-            <button onChange={this.handleNextClick}>Next</button>
+            <button onClick={this.handleNextClick}>Next</button>
         </div>
     );
   }
