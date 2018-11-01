@@ -9,7 +9,7 @@ class Checkout extends Component {
 
         //send order to database
         axios.post({
-            url: '/api/order/'
+            url: '/api/order/',
             data: ''
         }).then( (response) => {
             //confirmation dialog
