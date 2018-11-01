@@ -24,9 +24,6 @@ state= {
     render() {
         return (
             <div>
-                <header>
-                    <h1>Prime Pizza Orders</h1>
-                </header>
                 <table>
                     <thead>
                         <tr>
