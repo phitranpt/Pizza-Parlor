@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import './GetPizza.css';
 
-const orderPrice = (pizza) => + Number(pizza.price);
 
 class GetPizza extends Component {
     state = {
         selectPizza: '',
     }
+
+    // orderPrice = (pizza) => + Number(this.state.selectPizza);
 
     componentDidMount() {
         this.getAllPizza();
@@ -27,8 +28,9 @@ class GetPizza extends Component {
           })  
         }
 
-        displayOrderTotal = () => {
-            return this.state.selectPizza;
+        displayOrderTotal = (price) => {
+            console.log('Order Total:', price);
+            return price;
         }
 
         handleChange = (price) => {
@@ -36,17 +38,18 @@ class GetPizza extends Component {
             this.setState({
               selectPizza: price,
             });
-            console.log(price);
+            this.displayOrderTotal(price);
           }
 
         handleNextClick = () => {
+            this.props.dispatch( {type: 'ADD_PIZZA', payload: this.state.selectPizza} );
             this.props.history.push('/customer-info')
           }  
 
   render() {
     return (
         <div>
-            <p>Order Total: {this.displayOrderTotal}</p>
+            <p>Order Total: {this.state.selectPizza}</p>
             {this.props.reduxState.getPizzaReducer.map(pizza => (
                 <div key={pizza.id} className="card">
                     <img alt="" src={pizza.image_path} />
