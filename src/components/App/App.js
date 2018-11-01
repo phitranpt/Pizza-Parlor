@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import CustomerInfo from '../CustomerInfo/CustomerInfo'
 
 class App extends Component {
   render() {
