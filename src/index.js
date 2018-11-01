@@ -19,11 +19,11 @@ const orderReducer = (state={}, action) => {
     if (action.type === 'ADD_PIZZA') {
         //add pizzas to state
         console.log(action.payload);
-        //state = action.payload 
+        state = action.payload 
     } else if (action.type === 'ADD_CUSTOMER') {
         console.log(action.payload);
         
-        //state = {...state}
+        state = {...state, ...action.payload}
         //add customer to state
     } else if (action.type === 'CHECKOUT') {
         //send state to db as order
