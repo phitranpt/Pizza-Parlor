@@ -26,6 +26,7 @@ class CustomerInfo extends Component {
         event.preventDefault();
         console.log('adding customer information');
         this.props.dispatch({ type: 'ADD_CUSTOMER', payload: this.state})
+        this.props.history.push('/Checkout')
         this.clearCustomerFields();
     }
 
