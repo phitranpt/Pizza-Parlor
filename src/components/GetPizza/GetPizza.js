@@ -53,7 +53,7 @@ class GetPizza extends Component {
             console.log(this.state.pizzas);
             
             this.props.dispatch( {type: 'ADD_PIZZA', payload: this.state.pizzas} );
-            this.props.history.push('/customer-info')
+            this.props.history.push('/CustomerInfo')
           }  
 
   render() {
