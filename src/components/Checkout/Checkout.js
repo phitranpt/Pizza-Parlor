@@ -13,7 +13,11 @@ class Checkout extends Component {
     }
 
     render() {
-        const order = this.props.reduxState.orderReducer
+        const order = this.props.reduxState.orderReducer;
+        const id = this.props.reduxState.orderReducer.pizza.id;
+        const pizza = this.props.reduxState.getPizzaReducer[(id-1)];
+        console.log(pizza);
+        
       return (
         <div>
           <h3>Step 3: Checkout</h3>
@@ -23,7 +27,9 @@ class Checkout extends Component {
             <p>For {order.type}</p>
             <table>
                 <thead><tr><th>Name</th><th>Cost</th></tr></thead>
-                <tr></tr>
+                <tr>
+                    <td>{pizza.name}</td><td>{pizza.price}</td>
+                </tr>
                 <caption align="bottom">Total:{order.total}</caption>
             </table>
 
