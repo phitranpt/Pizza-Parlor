@@ -61,10 +61,10 @@ class CustomerInfo extends Component {
 
                     <div className="btn-group btn-group-toggle" data-toggle="buttons" id="radio">
                         <label className="btn btn-outline-primary">
-                        <input onChange={this.handleChange} type="radio" value="pickup" name="type"  id="option1" autocomplete="off" checked/>Pickup
+                        <input onChange={this.handleChange} type="radio" value="pickup" name="type"  id="option1" autoComplete="off" checked/>Pickup
                         </label>
                         <label className="btn btn-outline-secondary">
-                        <input onChange={this.handleChange} type="radio" value="delivery" name="type" id="option2" autocomplete="off"/>Delivery
+                        <input onChange={this.handleChange} type="radio" value="delivery" name="type" id="option2" autoComplete="off"/>Delivery
                         </label>
                     </div>
 
