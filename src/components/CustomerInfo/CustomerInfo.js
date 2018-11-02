@@ -8,7 +8,6 @@ const emptyCustomerObject = {
     street_address: '',
     city: '',
     zip: '',
-    total: '',
     type: ''
 }
 
