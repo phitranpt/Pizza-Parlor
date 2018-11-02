@@ -12,7 +12,7 @@ const emptyState = {
     city: '',
     zip: '',
     type: '',
-    total: '',
+    total: 0,
     pizzas: [{id: ''}]
 }
 
