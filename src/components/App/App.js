@@ -11,8 +11,7 @@ class App extends Component {
           <h1 className="App-title">Prime Pizza</h1>
         </header>
         <br/>
-        <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p>
+        <CustomerInfo />
       </div>
     );
   }

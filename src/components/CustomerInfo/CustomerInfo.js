@@ -4,7 +4,7 @@ import './CustomerInfo.css';
 import './bootstrap.min.css';
 
 const emptyCustomerObject = {
-    customer_Name: '',
+    customer_name: '',
     street_address: '',
     city: '',
     zip: '',
@@ -44,7 +44,7 @@ class CustomerInfo extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Name</label>
-                        <input className="form-control" onChange={this.handleChange} placeholder="Name" value={this.state.customer_Name} name="customer_Name" />
+                        <input className="form-control" onChange={this.handleChange} placeholder="Name" value={this.state.customer_name} name="customer_name" />
                     </div>
                     <div className="form-group">
                         <label>Street Address</label>
@@ -61,7 +61,7 @@ class CustomerInfo extends Component {
 
                     <div className="btn-group btn-group-toggle" data-toggle="buttons" id="radio">
                         <label className="btn btn-outline-primary">
-                        <input onChange={this.handleChange} type="radio" value="pickup" name="type"  id="option1" autoComplete="off" checked/>Pickup
+                        <input onChange={this.handleChange} type="radio" value="pickup" name="type"  id="option1" autoComplete="off"/>Pickup
                         </label>
                         <label className="btn btn-outline-secondary">
                         <input onChange={this.handleChange} type="radio" value="delivery" name="type" id="option2" autoComplete="off"/>Delivery
