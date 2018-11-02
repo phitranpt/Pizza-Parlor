@@ -1,9 +1,23 @@
-input {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+label {
+    float: left;
 }
+
+.form-group {
+    width: 100%;
+}
+
+#radio {
+    float: left;
+    margin-top: 50px;
+}
+
+#next {
+    margin-top: 55px;
+    float: right;
+}
+
+
+
+
+
+

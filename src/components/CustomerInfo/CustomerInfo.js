@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './CustomerInfo.css';
+import './bootstrap.min.css';
 
 const emptyCustomerObject = {
     customer_Name: '',
@@ -37,20 +39,41 @@ class CustomerInfo extends Component {
 
     render () {
         return (
-            <section>
+            <section className="container">
                 <h1>Step 2: Customer Information</h1>
                 
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} placeholder="Name" value={this.state.customer_Name} name="customer_Name" />
-                    <input onChange={this.handleChange} placeholder="Street Address" value={this.state.street_address} name="street_address" />
-                    <input onChange={this.handleChange} placeholder="City" value={this.state.city} name="city" />
-                    <input onChange={this.handleChange} placeholder="Zip" value={this.state.zip} name="zip" /><br></br>
-                    <input onChange={this.handleChange} type="radio" value="pickup" name="type" />Pickup<br></br>
-                    <input onChange={this.handleChange} type="radio" value="delivery" name="type" />Delivery<br></br>
-                    <input type="submit" value="Next" />
+                    <div className="form-group">
+                        <label>Name</label>
+                        <input className="form-control" onChange={this.handleChange} placeholder="Name" value={this.state.customer_Name} name="customer_Name" />
+                    </div>
+                    <div className="form-group">
+                        <label>Street Address</label>
+                        <input className="form-control" onChange={this.handleChange} placeholder="Street Address" value={this.state.street_address} name="street_address" />
+                    </div>
+                    <div className="form-group">
+                    <label>City</label>
+                        <input className="form-control" onChange={this.handleChange} placeholder="City" value={this.state.city} name="city" />
+                    </div>
+                    <div className="form-group">
+                        <label>Zip</label>
+                        <input className="form-control" onChange={this.handleChange} placeholder="Zip" value={this.state.zip} name="zip" />
+                    </div >
+
+                    <div className="btn-group btn-group-toggle" data-toggle="buttons" id="radio">
+                        <label className="btn btn-outline-primary">
+                        <input onChange={this.handleChange} type="radio" value="pickup" name="type"  id="option1" autocomplete="off" checked/>Pickup
+                        </label>
+                        <label className="btn btn-outline-secondary">
+                        <input onChange={this.handleChange} type="radio" value="delivery" name="type" id="option2" autocomplete="off"/>Delivery
+                        </label>
+                    </div>
+
+                    <div id="next">
+                        <input className="btn-lg btn btn-success" type="submit" value="Next" />   
+                    </div>
                 </form>
 
-                <h2>Total:</h2>
             </section>
         )
     }
