@@ -71,9 +71,9 @@ class GetPizza extends Component {
                             `}
                         </p>
                         <button id="addButton" onClick={() => this.handleChange(pizza.id, pizza.price)}>Add</button>
-                        <button onClick={() => { this.deletePizza(pizza.id)}}>
+                        {/* <button onClick={() => { this.deletePizza(pizza.id)}}>
                             Delete
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             ))}
