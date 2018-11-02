@@ -1,0 +1,23 @@
+label {
+    float: left;
+}
+
+.form-group {
+    width: 100%;
+}
+
+#radio {
+    float: left;
+    margin-top: 50px;
+}
+
+#next {
+    margin-top: 55px;
+    float: right;
+}
+
+
+
+
+
+
