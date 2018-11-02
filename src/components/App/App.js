@@ -11,6 +11,7 @@ import Header from '../Header/Header'
 class App extends Component {
   render() {
     return (
+<<<<<<< HEAD
       <Router>
         <div className="App">
         <Header />
@@ -28,6 +29,15 @@ class App extends Component {
           <Route path="/AdminView" component={AdminView} />
         </div>
       </Router>
+=======
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Prime Pizza</h1>
+        </header>
+        <br/>
+        <CustomerInfo />
+      </div>
+>>>>>>> feature-customer-info-input
     );
   }
 }
