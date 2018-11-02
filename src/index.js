@@ -6,6 +6,7 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import axios from 'axios';
 
 // GET PizzaReducer
 const getPizzaReducer = (state=[ ], action) => {
@@ -27,9 +28,8 @@ const orderReducer = (state={}, action) => {
         state = {...state, ...action.payload}
         //add customer to state
     } else if (action.type === 'CHECKOUT') {
-        //send state to db as order
-        
-        state = {};
+        //reset state
+        state = {}; 
     }
     return state
 }

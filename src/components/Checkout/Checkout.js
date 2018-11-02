@@ -6,10 +6,20 @@ import { connect } from 'react-redux';
 class Checkout extends Component {
 
     checkout = () => {
+      const order = this.props.reduxState.orderReducer;
+      axios({
+        method: 'POST',
+        url: '/api/order/',
+        data: order
+    }).then( (response) =>{
+        console.log('order sent', order);
         this.props.dispatch( { type:'CHECKOUT' } );
-        alert('Order Sent')
+        alert('Order Sent');
         //send back to step one
         this.props.history.push('/');
+    }).catch( (error) =>{
+        console.log('error', error); 
+    });
     }
 
     render() {
@@ -29,9 +39,11 @@ class Checkout extends Component {
             <p>For {order.type}</p>
             <table>
                 <thead><tr><th>Name</th><th>Cost</th></tr></thead>
+                <tbody>
                 <tr>
                     <td>{pizza.name}</td><td>{pizza.price}</td>
                 </tr>
+                </tbody>
                 <caption align="bottom">Total:{order.total}</caption>
             </table>
 
