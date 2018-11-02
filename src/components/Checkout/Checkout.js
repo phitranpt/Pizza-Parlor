@@ -15,10 +15,10 @@ class Checkout extends Component {
         data: order
     }).then( (response) =>{
         console.log('order sent', order);
-        this.props.dispatch( { type:'CHECKOUT' } );
         alert('Order Sent');
         //send back to step one
         this.props.history.push('/');
+        this.props.dispatch( { type:'CHECKOUT' } );
     }).catch( (error) =>{
         console.log('error', error); 
     });

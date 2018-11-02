@@ -13,7 +13,7 @@ const emptyState = {
     zip: '',
     type: '',
     total: '',
-    pizzas: [{id: 1}]
+    pizzas: [{id: ''}]
 }
 
 // GET PizzaReducer
