@@ -34,20 +34,6 @@ class GetPizza extends Component {
         //     return price;
         // }
 
-        deletePizza = (id) => {
-            axios({
-              method: 'DELETE',
-              url: `/api/pizza/${id}`
-            })
-            .then( (response) => {
-                console.log('pizza id: ', response.id);
-                this.props.getAllPizza();
-            }) 
-            .catch( (error) => {
-              alert('Error in Delete', error)
-            } )
-          }
-
         // handle onClick for add pizza button
         handleChange = (id, price) => {
             console.log('running Handle Change');
