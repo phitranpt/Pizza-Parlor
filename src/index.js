@@ -6,6 +6,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+const emptyState = {
+    customer_name: '',
+    street_address: '',
+    city: '',
+    zip: '',
+    type: '',
+    total: '',
+    pizzas: [{id: 1}]
+}
+
 // GET PizzaReducer
 const getPizzaReducer = (state=[ ], action) => {
     console.log('In Get Pizza Reducer');
@@ -15,7 +25,7 @@ const getPizzaReducer = (state=[ ], action) => {
     return state;
 }
 
-const orderReducer = (state={}, action) => {
+const orderReducer = (state=emptyState, action) => {
     if (action.type === 'ADD_PIZZA') {
         //add pizzas to state
         console.log(action.payload);
@@ -27,7 +37,7 @@ const orderReducer = (state={}, action) => {
         //add customer to state
     } else if (action.type === 'CHECKOUT') {
         //reset state
-        state = {}; 
+        state = emptyState; 
     }
     return state
 }

@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
+
+
 class Checkout extends Component {
 
     checkout = () => {
