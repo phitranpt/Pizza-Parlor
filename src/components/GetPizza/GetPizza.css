@@ -1,30 +1,55 @@
-img {
-    width:100px;
-    height:100px;
+#mainDiv {
+    background-color: #af52bf;
 }
 
-h3 {
-    margin: 15px;
-}
-
-.card {
-    position: relative;
+.card{
+    width: 350px;
     display: inline-block;
-    margin-right: 10px;
-    width: 300px;
-    height: 350px;
-    border-radius: 10px;
-    margin: 30px;
-    background: #fff;
-    -webkit-box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
-    box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
-  }
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px #888;
+    border-top: 10px solid #6d1b7b;
+    min-height: 250px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+    }
+    
+    img{
+      border-radius: 50%;
+      width: 120px;
+      margin: 10px;
+    }
+    
+    p{
+      margin: 10px;
+      font-family: segoe ui;
+      line-height: 1.4em;
+      font-size: 1.2em;
+    }
+    
+    #mainBox{
+    display: -webkit-inline-flex;
+        box-sizing: border-box;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 
-.container {
-    padding: 2px 16px;
-    /* margin: 10px; */
-}
+    #addButton {
+        width: 80px;
+        height:25px;
+        color: white;
+        background-color: #888;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+
+    #nextButton {
+        width: 150px;
+        height:75px;
+        color: white;
+        background-color: grey;
+        font-size: 20px;
+        border-radius: 15px;
+        align-content: center;
+    }

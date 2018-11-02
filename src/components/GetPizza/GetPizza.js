@@ -10,8 +10,7 @@ class GetPizza extends Component {
             quantity: ''
         }],
     }
-
-
+    
     componentDidMount() {
         this.getAllPizza();
       }
@@ -29,13 +28,27 @@ class GetPizza extends Component {
           })  
         }
 
-        displayOrderTotal = (price) => {
-            console.log('Order Total:', price);
-            return price;
-        }
+        // display price in 
+        // displayOrderTotal = (price) => {
+        //     console.log('Order Total:', price);
+        //     return price;
+        // }
 
+        deletePizza = (id) => {
+            axios({
+              method: 'DELETE',
+              url: `/api/pizza/${id}`
+            })
+            .then( (response) => {
+                console.log('pizza id: ', response.id);
+                this.props.getAllPizza();
+            }) 
+            .catch( (error) => {
+              alert('Error in Delete', error)
+            } )
+          }
 
-
+        // handle onClick for add pizza button
         handleChange = (id, price) => {
             console.log('running Handle Change');
             this.setState({
@@ -46,9 +59,9 @@ class GetPizza extends Component {
               total: price
             });
             console.log(this.state);
-            this.displayOrderTotal(price);
           }
 
+        // handle onClick for next step button
         handleNextClick = () => {
             console.log(this.state.pizzas);
             
@@ -61,9 +74,9 @@ class GetPizza extends Component {
         <div>
             <p>Order Total: {this.state.total}</p>
             {this.props.reduxState.getPizzaReducer.map(pizza => (
-                <div key={pizza.id} className="card">
-                    <img alt="" src={pizza.image_path} />
-                    <div className="container">
+                <div id="mainBox" key={pizza.id}>
+                    <div className="card">
+                        <img alt="" src={pizza.image_path} />
                         <h3>{pizza.name}</h3>
                         <p>
                             {`
@@ -71,15 +84,19 @@ class GetPizza extends Component {
                             ${pizza.price}
                             `}
                         </p>
-                        <button onClick={() => this.handleChange(pizza.id, pizza.price)}>Add</button>
+                        <button id="addButton" onClick={() => this.handleChange(pizza.id, pizza.price)}>Add</button>
+                        <button onClick={() => { this.deletePizza(pizza.id)}}>
+                            Delete
+                        </button>
                     </div>
                 </div>
             ))}
-            <button onClick={this.handleNextClick}>Next</button>
+            <button id="nextButton" onClick={this.handleNextClick}>Next</button>
         </div>
     );
   }
 }
+
 const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
 
 export default connect(mapReduxStateToProps)(GetPizza);
