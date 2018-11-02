@@ -15,11 +15,11 @@ class App extends Component {
         <div className="App">
         <Header />
           <nav>
-            <ul>
+            {/* <ul>
               <li><Link to="/">Order Pizza</Link></li>
               <li><Link to="/CustomerInfo">Customer Information</Link></li>
               <li><Link to="/Checkout">Checkout</Link></li>
-            </ul>
+            </ul> */}
           </nav>
           <Route exact path="/" component={GetPizza} />
           <Route path="/CustomerInfo" component={CustomerInfo} />
