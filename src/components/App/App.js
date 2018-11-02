@@ -19,7 +19,6 @@ class App extends Component {
               <li><Link to="/">Order Pizza</Link></li>
               <li><Link to="/CustomerInfo">Customer Information</Link></li>
               <li><Link to="/Checkout">Checkout</Link></li>
-              <li><Link to="/AdminView">Admin View</Link></li>
             </ul>
           </nav>
           <Route exact path="/" component={GetPizza} />
